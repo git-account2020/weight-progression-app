@@ -36,9 +36,9 @@ Algorithm
 */
 
 /*
-Ver.1.3
+Ver.1.4
 Modularization
-	Goal is to add funcitons to the program
+	Only use functions and local variables
 	Passing data arguments to the funciton
 	
 */
@@ -46,16 +46,60 @@ Modularization
 
 
 
-	var sets;
-	var reps;
-	var platesSide;
-	var barWeight;
-	var finalVolume;
 	
-	sets = parseInt(prompt("How many sets did you do or are you doing?"));
-	reps = parseInt(prompt("How many reps did you do or are you doing?"));
-	platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
-	barWeight = parseInt(prompt("What is the bar weight?"));
+	
+	
+	
+	
+	
+	var userSets 
+	var userReps 
+	var userPlatesSide 
+	var userBarWeight 
+	
+	/*
+	getSets();
+	getReps();
+	getPlatesSide();
+	getBarWeight();
+	*/
+
+	
+	userSets = getSets();
+	userReps = getReps();
+	userPlatesSide = getPlatesSide();
+	userBarWeight = getBarWeight();
+
+	
+	document.write("Your total volume is " + calculateVolume(userPlatesSide, userBarWeight,userSets, userReps) + " pounds.");
+	
+	function getSets(){
+		var sets;
+		
+		sets = parseInt(prompt("How many sets did you do or are you doing?"));
+		return sets;
+	}
+	
+	function getReps(){
+		var reps;
+		
+		reps = parseInt(prompt("How many reps did you do or are you doing?"));
+		return reps;
+	}
+	
+	function getPlatesSide(){
+		var platesSide;
+		
+		platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
+		return platesSide;
+	}
+	
+	function getBarWeight(){
+		var barWeight;
+		
+		barWeight = parseInt(prompt("What is the bar weight?"));
+		return barWeight;
+	}
 	
 	
 
@@ -72,4 +116,4 @@ function calculateVolume (platesSide, barWeight,sets, reps){
 }
 
 
-document.write("Your total volume is " + calculateVolume(platesSide, barWeight,sets, reps) + " pounds.");
+
