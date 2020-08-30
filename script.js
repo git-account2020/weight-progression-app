@@ -36,40 +36,40 @@ Algorithm
 */
 
 /*
-Ver.1.2 
+Ver.1.3
 Modularization
 	Goal is to add funcitons to the program
-	Using global variables
+	Passing data arguments to the funciton
 	
 */
 
-var sets;
-var reps;
-var platesSide;
-var barWeight;
-var totalPlatesWeight;
-var totalWeight;
-var totalVolume;
 
 
-readWeight();
-calculateVolume();
 
-
-function readWeight(){
+	var sets;
+	var reps;
+	var platesSide;
+	var barWeight;
+	var finalVolume;
+	
 	sets = parseInt(prompt("How many sets did you do or are you doing?"));
 	reps = parseInt(prompt("How many reps did you do or are you doing?"));
 	platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
 	barWeight = parseInt(prompt("What is the bar weight?"));
-}
+	
+	
 
 
-function calculateVolume (){
+function calculateVolume (platesSide, barWeight,sets, reps){
+	var totalPlatesWeight;
+	var totalWeight;
+	var totalVolume;
+	
 	totalPlatesWeight = platesSide * 2;
 	totalWeight = totalPlatesWeight + barWeight;
 	totalVolume = sets * reps * platesSide;
+	return totalVolume;
 }
 
 
-
-document.write("Your total volume is " + totalVolume + " pounds.");
+document.write("Your total volume is " + calculateVolume(platesSide, barWeight,sets, reps) + " pounds.");
