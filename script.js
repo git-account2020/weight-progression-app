@@ -43,4 +43,13 @@ var totalPlatesWeight;
 var totalWeight;
 var totalVolume;
 
-document.write("hello world");
+sets = parseInt(prompt("How many sets did you do or are you doing?"));
+reps = parseInt(prompt("How many reps did you do or are you doing?"));
+platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
+barWeight = parseInt(prompt("What is the bar weight?"));
+
+totalPlatesWeight = platesSide * 2;
+totalWeight = totalPlatesWeight + barWeight;
+totalVolume = sets * reps * platesSide;
+
+document.write("Your total volume is " + totalVolume + " pounds.");
