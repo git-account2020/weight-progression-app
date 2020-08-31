@@ -36,72 +36,54 @@ Algorithm
 */
 
 /*
-Ver.1.4
-Modularization
-	Only use functions and local variables
-	Passing data arguments to the funciton
+Ver.1.5
+Object Oriented
+	Use objects and methods
 	
+What I did 
+	Removed the variables
+	Created an object
+	Took the functions and turned them into methods
+	Added a return statement at the end of the method
+	Made a property and gave it a value by assigning the property to the corresponding method
+	Replaced variables with properties in the print document.write statement
 */
 
 
 
 
-	
-	
-	
-	
-	
-	
-	var userSets 
-	var userReps 
-	var userPlatesSide 
-	var userBarWeight 
-	
-	/*
-	getSets();
-	getReps();
-	getPlatesSide();
-	getBarWeight();
-	*/
 
+	// changed the variable to properties of user object
+	var user = {
+		
+		getSets : function(){ //added function as method 
+			var sets;
+			
+			sets = parseInt(prompt("How many sets did you do or are you doing?"));
+			return sets;
+		
+		},
+		getReps: function(){ //added function as method 
+			var reps;
+			
+			reps = parseInt(prompt("How many reps did you do or are you doing?"));
+			return reps;
+		},
+		getPlatesSide: function(){
+			platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
+			return platesSide;
+		},
+		getBarWeight: function(){
+			var barWeight;	
+			barWeight = parseInt(prompt("What is the bar weight?"));
+			return barWeight;
+		}
+		
+	};
 	
-	userSets = getSets();
-	userReps = getReps();
-	userPlatesSide = getPlatesSide();
-	userBarWeight = getBarWeight();
+	
+		
 
-	
-	document.write("Your total volume is " + calculateVolume(userPlatesSide, userBarWeight,userSets, userReps) + " pounds.");
-	
-	function getSets(){
-		var sets;
-		
-		sets = parseInt(prompt("How many sets did you do or are you doing?"));
-		return sets;
-	}
-	
-	function getReps(){
-		var reps;
-		
-		reps = parseInt(prompt("How many reps did you do or are you doing?"));
-		return reps;
-	}
-	
-	function getPlatesSide(){
-		var platesSide;
-		
-		platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
-		return platesSide;
-	}
-	
-	function getBarWeight(){
-		var barWeight;
-		
-		barWeight = parseInt(prompt("What is the bar weight?"));
-		return barWeight;
-	}
-	
-	
 
 
 function calculateVolume (platesSide, barWeight,sets, reps){
@@ -116,4 +98,10 @@ function calculateVolume (platesSide, barWeight,sets, reps){
 }
 
 
+user.Sets = user.getSets();
+user.Reps = user.getReps();
+user.PlatesSide = user.getPlatesSide();
+user.BarWeight = user.getBarWeight();
 
+	document.write("Your total volume is " + calculateVolume(user.PlatesSide, user.BarWeight,user.Sets, user.Reps) + " pounds.");
+	
