@@ -36,56 +36,70 @@ Algorithm
 */
 
 /*
-Ver.1.5
+Ver.1.6
 Object Oriented
 	Use objects and methods
+	Using a contructor function
 	
 What I did 
-	Removed the variables
-	Created an object
-	Took the functions and turned them into methods
-	Added a return statement at the end of the method
-	Made a property and gave it a value by assigning the property to the corresponding method
-	Replaced variables with properties in the print document.write statement
+	Turned the methods back into regular functions
+	Created a constructer function called workout
+	Create an instance(example) of the workout called user
+	Passed the return value of each function
+	
+	Removed the steps where I previously assigned a method to a property name
 */
 
 
 
 
 
-	// changed the variable to properties of user object
-	var user = {
+	// functions for getting workout values from users
+	
 		
-		getSets : function(){ //added function as method 
+		 function getSets (){ //added function as method 
 			var sets;
 			
 			sets = parseInt(prompt("How many sets did you do or are you doing?"));
 			return sets;
-		
-		},
-		getReps: function(){ //added function as method 
+			}
+		 
+		 function getReps (){ //added function as method 
 			var reps;
 			
 			reps = parseInt(prompt("How many reps did you do or are you doing?"));
 			return reps;
-		},
-		getPlatesSide: function(){
+			}
+		 
+		 function getPlatesSide (){
 			platesSide = parseInt(prompt("What is the weight of the plates on one side?"));
 			return platesSide;
-		},
-		getBarWeight: function(){
+			}
+		 
+		 function getBarWeight () {
 			var barWeight;	
 			barWeight = parseInt(prompt("What is the bar weight?"));
 			return barWeight;
-		}
+			}
 		
-	};
 	
 	
-		
+	// contructor function for workout
+	// input how many sets, reps, plates on one side, and the bar weight
+	// create attributes
+	function workout (getSets, getReps, getPlatesSide, getBarWeight){
+		this.Sets = getSets;
+		this.Reps = getReps;
+		this.PlatesSide = getPlatesSide;
+		this.BarWeight = getBarWeight;
+	}
+	
+	
+	var user = new workout(getSets(), getReps(), getPlatesSide(), getBarWeight());
+	
 
-
-
+// Input take in plates, the weight of the bar, how many sets, reps
+// output the total volume or work created
 function calculateVolume (platesSide, barWeight,sets, reps){
 	var totalPlatesWeight;
 	var totalWeight;
@@ -97,11 +111,13 @@ function calculateVolume (platesSide, barWeight,sets, reps){
 	return totalVolume;
 }
 
-
+/*
 user.Sets = user.getSets();
 user.Reps = user.getReps();
 user.PlatesSide = user.getPlatesSide();
 user.BarWeight = user.getBarWeight();
+
+*/
 
 	document.write("Your total volume is " + calculateVolume(user.PlatesSide, user.BarWeight,user.Sets, user.Reps) + " pounds.");
 	
